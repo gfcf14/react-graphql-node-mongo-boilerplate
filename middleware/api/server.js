@@ -16,7 +16,12 @@ const resolvers = {
     },
 };
 
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    introspection: true,
+    playground: true
+});
 const app = express();
 
 // Apply CORS middleware globally or specifically to the GraphQL route
