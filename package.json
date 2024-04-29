@@ -1,0 +1,11 @@
+{
+  "name": "react-graphql-python-sql-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start-fe": "npm run --prefix ./frontend start"
+  },
+  "author": "",
+  "license": "ISC"
+}
