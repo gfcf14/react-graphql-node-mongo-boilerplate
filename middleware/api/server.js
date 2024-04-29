@@ -34,6 +34,12 @@ async function startServer() {
     // Serve the GraphQL Playground at the /playground URL
     app.get('/playground', expressPlayground({ endpoint: '/graphql' }));
 
+    // Redirect from root to /playground
+    // This is purely "cosmetic" so Vercel doesn't show an error page on the dashboard
+    app.get('/', (req, res) => {
+        res.redirect('/playground');
+    });
+
     // Only listen on HTTP port in local development, not when deployed on Vercel
     if (!process.env.VERCEL) {
         const PORT = process.env.PORT || 4000;
