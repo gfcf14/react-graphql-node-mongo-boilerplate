@@ -2,6 +2,7 @@ const express = require('express');
 const { ApolloServer, gql } = require('apollo-server-express');
 const expressPlayground = require('graphql-playground-middleware-express').default;
 const { createServer } = require('http');
+const cors = require('cors');
 
 const typeDefs = gql`
 type Query {
@@ -17,6 +18,9 @@ const resolvers = {
 
 const server = new ApolloServer({ typeDefs, resolvers });
 const app = express();
+
+// Apply CORS middleware globally or specifically to the GraphQL route
+app.use(cors());
 
 async function startServer() {
     await server.start();
