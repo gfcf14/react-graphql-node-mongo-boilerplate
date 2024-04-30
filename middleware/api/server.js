@@ -5,11 +5,13 @@ const { createServer } = require('http');
 const cors = require('cors');
 const { testTypeDefs, testResolvers } = require('../src/graphql/resolvers/test/test.js');
 
+const isDev = process.env.MIDDLEWARE_ENV === 'dev';
+
 const server = new ApolloServer({
   typeDefs: [testTypeDefs],
   resolvers: [testResolvers],
-  introspection: false, // process.env.NODE_ENV !== 'production',
-  playground: true
+  introspection: isDev,
+  playground: isDev
 });
 
 const app = express();
