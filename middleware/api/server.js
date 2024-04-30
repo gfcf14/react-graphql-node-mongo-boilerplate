@@ -8,8 +8,8 @@ const { testTypeDefs, testResolvers } = require('../src/graphql/resolvers/test/t
 const server = new ApolloServer({
   typeDefs: [testTypeDefs],
   resolvers: [testResolvers],
-  // introspection: true,
-  // playground: true
+  introspection: process.env.NODE_ENV !== 'production',
+  playground: true
 });
 
 const app = express();
