@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start:be": "npm run --prefix ./backend start",
     "start:fe": "npm run --prefix ./frontend start",
     "start:mw": "npm run --prefix ./middleware start",
-    "start": "concurrently \"npm run start:fe\" \"npm run start:mw\""
+    "start": "concurrently \"npm run start:fe\" \"npm run start:mw\" \"npm run start:be\""
   },
   "author": "",
   "license": "ISC",
