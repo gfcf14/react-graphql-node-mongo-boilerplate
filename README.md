@@ -1,1 +1,1 @@
-# react-graphql-python-sql-boilerplate
+# react-graphql-node-sql-boilerplate
