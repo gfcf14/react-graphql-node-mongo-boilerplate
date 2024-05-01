@@ -1,7 +1,15 @@
+const axios = require('axios');
+
 class TestDataSource {
   static async test() {
-    return 'FE integrated successfully with Middleware!';
+    try {
+      const response = await axios.get(`${process.env.BACKEND_URL}/test`);
+      return `FE integrated successfully with Middleware! ${response.data}`;
+    } catch (error) {
+      console.error('Failed to fetch data from backend:', error);
+      return 'Error fetching data';
+    }
   }
- }
- 
- module.exports = TestDataSource;
+}
+
+module.exports = TestDataSource;
