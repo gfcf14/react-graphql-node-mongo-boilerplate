@@ -12,8 +12,6 @@ app.use('/', express.static(path.join(__dirname, '/public')));
 
 app.use('/test', testRouter.getUsers);
 
-let db;
-
 connectToDb()
   .then((res) => {
     app.listen(PORT, () => {
@@ -24,4 +22,4 @@ connectToDb()
     console.log(err);
   });
 
-module.exports = { db };
+module.exports = app;
