@@ -5,7 +5,10 @@ const getUsers = async (req, res) => {
     let db = await connectToDb();
     const collection = db.collection(process.env.DB_COLLECTION);
     const data = await collection.find({}).toArray();
-    res.send(data);
+    res.send({
+      message: 'And the Backend too!',
+      data
+    });
   } catch (error) {
     console.error('Error accessing the database', error);
     res.status(500).send('Failed to fetch data');

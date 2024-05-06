@@ -23,7 +23,7 @@ app.use('/test', testRouter.getUsers);
 async function startServer() {
   const port = process.env.PORT || 5000;
   app.listen({ port }, () =>
-    log(`🚀 Server ready at http://localhost:${port}`)
+    log(`✨ Server ready at http://localhost:${port}`)
   );
   connectToDb();
 }

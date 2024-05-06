@@ -12,7 +12,7 @@ const connectToDb = async () => {
   }
   try {
     await client.connect();
-    console.log('Connected to MongoDB');
+    console.log('📘 Connected to MongoDB');
     database = client.db(process.env.DB_NAME);
     return database;
   } catch (error) {

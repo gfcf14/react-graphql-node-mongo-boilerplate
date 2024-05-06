@@ -1,9 +1,10 @@
 import { useQuery } from '@apollo/client';
 import React from 'react';
-import { TEST } from '../../graphql/queries/test';
+import { GET_TEST_DATA } from '../../graphql/queries/test';
+import { TestQuery, UserData } from '../../generated/graphql';
 
 const TestPage: React.FC = () => {
-  const { data, error, loading } = useQuery<{hello: string}>(TEST);
+  const { data, error, loading } = useQuery<TestQuery>(GET_TEST_DATA);
 
   if (loading) {
     return <p>now loading...</p>;
@@ -14,7 +15,20 @@ const TestPage: React.FC = () => {
   ) : (
     <div>
       <h2>From GraphQL</h2>
-      <p>{`Response: ${data?.hello}`}</p>
+      <p>{`Response: ${data?.test?.message}`}</p>
+      {data?.test?.data?.length && (
+        <ul>
+          {data?.test?.data.map((currUserData, i) => {
+            const { name, userId } = currUserData!;
+
+            return (
+              <li key={i}>
+                {`${userId}: ${name}`}
+              </li>
+            )
+          })}
+        </ul>
+      )}
     </div>
   )
 }

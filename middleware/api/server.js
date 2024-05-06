@@ -23,7 +23,7 @@ async function startServer() {
   // Only listen on HTTP port in local development, not when deployed on Vercel
   if (!process.env.VERCEL) {
     const PORT = process.env.PORT || 4000;
-    app.listen(PORT, () => console.log(`🚀 Server ready at http://localhost:${PORT}/graphql`));
+    app.listen(PORT, () => console.log(`💫 Server ready at http://localhost:${PORT}/graphql`));
   }
 }
 

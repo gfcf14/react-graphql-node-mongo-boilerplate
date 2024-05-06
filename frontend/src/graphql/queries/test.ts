@@ -1,7 +1,13 @@
 import { gql } from "@apollo/client";
 
-export const TEST = gql`
-  query Test {
-    hello
+export const GET_TEST_DATA = gql`
+  query GetTestData {
+    test {
+      message
+      data {
+        name
+        userId
+      }
+    }
   }
 `;
