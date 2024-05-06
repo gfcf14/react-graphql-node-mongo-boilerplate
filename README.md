@@ -1,1 +1,1 @@
-# react-graphql-node-sql-boilerplate
+# react-graphql-node-mongo-boilerplate
