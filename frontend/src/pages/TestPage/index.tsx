@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client';
 import React from 'react';
 import { GET_TEST_DATA } from '../../graphql/queries/test';
-import { TestQuery, UserData } from '../../generated/graphql';
+import { TestQuery } from '../../generated/graphql';
 
 const TestPage: React.FC = () => {
   const { data, error, loading } = useQuery<TestQuery>(GET_TEST_DATA);
